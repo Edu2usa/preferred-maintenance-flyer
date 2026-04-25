@@ -595,6 +595,13 @@ h2 {
   margin-bottom: 0.85rem;
 }
 
+.footer-logo {
+  width: min(188px, 58vw);
+  height: auto;
+  max-height: 68px;
+  object-fit: contain;
+}
+
 .footer-grid h3 {
   font-size: 1rem;
   margin-bottom: 0.44rem;
@@ -724,5 +731,10 @@ h2 {
 
   .gallery-grid img {
     min-height: 198px;
+  }
+
+  .footer-logo {
+    width: min(170px, 54vw);
+    max-height: 60px;
   }
 }
