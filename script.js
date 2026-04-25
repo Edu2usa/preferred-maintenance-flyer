@@ -4,6 +4,12 @@ const navLinks = document.querySelectorAll("#siteNav a");
 const revealEls = document.querySelectorAll(".reveal");
 const yearEl = document.querySelector("#year");
 const contactForm = document.querySelector("#contactForm");
+const submitBtn = document.querySelector("#submitBtn");
+const formSuccess = document.querySelector("#formSuccess");
+
+if (window.lucide && typeof window.lucide.createIcons === "function") {
+  window.lucide.createIcons();
+}
 
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
@@ -33,7 +39,7 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    { threshold: 0.16 }
+    { threshold: 0.14 }
   );
 
   revealEls.forEach((el) => observer.observe(el));
@@ -41,9 +47,15 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
-if (contactForm) {
+if (contactForm && submitBtn && formSuccess) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      formSuccess.textContent = "Please complete the required fields before sending.";
+      return;
+    }
+
     const data = new FormData(contactForm);
     const firstName = (data.get("firstName") || "").toString().trim();
     const lastName = (data.get("lastName") || "").toString().trim();
@@ -63,7 +75,18 @@ if (contactForm) {
       message || "N/A"
     ].join("\n");
 
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Preparing Email...";
+    formSuccess.textContent = "Thanks. Your default email app is opening with your request details.";
+
     const mailto = `mailto:john@prefmaint.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    setTimeout(() => {
+      window.location.href = mailto;
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "<i data-lucide=\"send\"></i>Send Request";
+      if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+      }
+    }, 550);
   });
 }
