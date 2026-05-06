@@ -6,10 +6,34 @@ const yearEl = document.querySelector("#year");
 const contactForm = document.querySelector("#contactForm");
 const submitBtn = document.querySelector("#submitBtn");
 const formSuccess = document.querySelector("#formSuccess");
+const focusableSelector = "a[href], button, input, textarea, select, [tabindex]:not([tabindex='-1'])";
+
+const keepFocusableContentAccessible = () => {
+  document.querySelectorAll("[aria-hidden='true'], [data-aria-hidden='true']").forEach((el) => {
+    const isPageSection = el.matches("header, main, footer, section, .hero, .reveal, .split-text, .contact-form");
+    const containsFocusableContent = Boolean(el.querySelector(focusableSelector));
+
+    if (isPageSection || containsFocusableContent) {
+      el.removeAttribute("aria-hidden");
+      el.removeAttribute("data-aria-hidden");
+    }
+  });
+};
 
 if (window.lucide && typeof window.lucide.createIcons === "function") {
   window.lucide.createIcons();
 }
+
+keepFocusableContentAccessible();
+
+document.addEventListener("DOMContentLoaded", keepFocusableContentAccessible);
+
+const accessibilityObserver = new MutationObserver(keepFocusableContentAccessible);
+accessibilityObserver.observe(document.documentElement, {
+  subtree: true,
+  attributes: true,
+  attributeFilter: ["aria-hidden", "data-aria-hidden"]
+});
 
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
