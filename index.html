@@ -360,33 +360,33 @@
           <p class="subtle">Typical response time: within one business day.</p>
         </div>
         <form id="contactForm" class="contact-form reveal" action="#" method="post" novalidate>
-          <label>
+          <label for="firstName">
             First Name
-            <input type="text" name="firstName" required>
+            <input id="firstName" type="text" name="firstName" required>
           </label>
-          <label>
+          <label for="lastName">
             Last Name
-            <input type="text" name="lastName" required>
+            <input id="lastName" type="text" name="lastName" required>
           </label>
-          <label>
+          <label for="company">
             Company
-            <input type="text" name="company">
+            <input id="company" type="text" name="company">
           </label>
-          <label>
+          <label for="phone">
             Phone
-            <input type="tel" name="phone">
+            <input id="phone" type="tel" name="phone">
           </label>
-          <label>
+          <label for="email">
             Email
-            <input type="email" name="email" required>
+            <input id="email" type="email" name="email" required>
           </label>
-          <label>
+          <label for="subject">
             Subject
-            <input type="text" name="subject" placeholder="Quote Request">
+            <input id="subject" type="text" name="subject" placeholder="Quote Request">
           </label>
-          <label>
+          <label for="message">
             Leave us a message...
-            <textarea name="message" rows="5"></textarea>
+            <textarea id="message" name="message" rows="5"></textarea>
           </label>
           <button id="submitBtn" type="submit" class="btn btn-primary"><i data-lucide="send"></i>Send Request</button>
           <p id="formSuccess" class="form-success" role="status" aria-live="polite"></p>
