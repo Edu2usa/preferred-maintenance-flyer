@@ -79,7 +79,7 @@ if (contactForm && submitBtn && formSuccess) {
     submitBtn.textContent = "Preparing Email...";
     formSuccess.textContent = "Thanks. Your default email app is opening with your request details.";
 
-    const mailto = `mailto:john@prefmaint.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:sales@prefmaint.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setTimeout(() => {
       window.location.href = mailto;
       submitBtn.disabled = false;
