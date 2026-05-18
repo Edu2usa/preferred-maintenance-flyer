@@ -11,6 +11,11 @@
   --radius: 8px;
   --radius-lg: 14px;
   --container: 1160px;
+  --ratio-hero: 16 / 9;
+  --ratio-feature: 16 / 11;
+  --ratio-card: 4 / 3;
+  --ratio-gallery: 4 / 3;
+  --ratio-video: 16 / 9;
 }
 
 *,
@@ -21,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -32,11 +38,17 @@ body {
     radial-gradient(900px 400px at 105% -10%, #ebe9ea 0%, transparent 48%),
     var(--bg);
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
 }
 
 a {
@@ -50,6 +62,7 @@ a {
 
 .section {
   padding: 4.6rem 0;
+  overflow: clip;
 }
 
 h1,
@@ -58,6 +71,18 @@ h3 {
   margin: 0;
   font-family: "Sora", "Trebuchet MS", sans-serif;
   line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+p,
+li,
+span,
+a,
+label,
+input,
+textarea,
+button {
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -104,6 +129,10 @@ h2 {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.service-area-bar span {
+  min-width: 0;
 }
 
 .service-area-bar a {
@@ -191,6 +220,7 @@ h2 {
   display: grid;
   align-items: center;
   padding: 0;
+  overflow: hidden;
 }
 
 .hero-media,
@@ -202,6 +232,7 @@ h2 {
 .hero-media img {
   width: 100%;
   height: 100%;
+  aspect-ratio: var(--ratio-hero);
   object-fit: cover;
 }
 
@@ -255,6 +286,10 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.82rem;
+}
+
+.cta-row > * {
+  min-width: 0;
 }
 
 .btn {
@@ -311,6 +346,7 @@ h2 {
   font-weight: 700;
   text-decoration: none;
   padding: 0.55rem 0.2rem;
+  white-space: nowrap;
 }
 
 .stats-band {
@@ -379,12 +415,31 @@ h2 {
   align-items: start;
 }
 
-.split-media img {
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  object-fit: cover;
+.split > *,
+.video-wrap > *,
+.stats-grid > *,
+.trust-grid > *,
+.industry-grid > *,
+.service-grid > *,
+.benefit-grid > *,
+.dual-list > *,
+.testimonial-grid > *,
+.gallery-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+.split-media {
+  aspect-ratio: var(--ratio-feature);
+  overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
+}
+
+.split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .quote {
@@ -417,6 +472,7 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 }
 
 .industry-grid i {
@@ -433,6 +489,10 @@ h2 {
 .industry-grid p {
   margin: 0.5rem 0 0;
   color: #ffe5e8;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .contact-list {
@@ -451,6 +511,7 @@ h2 {
 
 .section-heading p {
   color: var(--muted);
+  max-width: 70ch;
 }
 
 .services {
@@ -464,6 +525,8 @@ h2 {
 }
 
 .service-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -473,8 +536,10 @@ h2 {
 
 .service-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: var(--ratio-card);
   object-fit: cover;
+  flex: 0 0 auto;
 }
 
 .service-head {
@@ -496,6 +561,11 @@ h2 {
 
 .service-card h3 {
   font-size: 1.02rem;
+  min-height: 2.45em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .service-card p {
@@ -579,6 +649,7 @@ h2 {
 }
 
 .video-frame {
+  aspect-ratio: var(--ratio-video);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #1d1417;
@@ -589,8 +660,8 @@ h2 {
 .video-frame video {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 }
 
 .testimonials {
@@ -608,11 +679,16 @@ h2 {
   border-radius: var(--radius);
   background: #fff;
   padding: 0.95rem;
+  overflow: hidden;
 }
 
 .testimonial p {
   margin-top: 0;
   color: #39424f;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .testimonial h3 {
@@ -624,6 +700,9 @@ h2 {
   display: block;
   color: #4b5664;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .testimonial-meta {
@@ -640,7 +719,8 @@ h2 {
 
 .gallery-grid img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio-gallery);
   min-height: 220px;
   object-fit: cover;
   border-radius: var(--radius);
@@ -822,12 +902,25 @@ h2 {
     padding: 0.35rem 0;
   }
 
+  .service-area-bar span {
+    max-width: 34ch;
+  }
+
   .service-area-bar a {
     display: none;
   }
 
   .hero-content {
     padding: 6rem 0 4.2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
+    max-width: 100%;
+  }
+
+  .lead {
+    max-width: 100%;
   }
 
   .brand img {
