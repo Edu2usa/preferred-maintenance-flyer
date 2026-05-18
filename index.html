@@ -48,6 +48,12 @@
 </head>
 <body>
   <header class="site-header">
+    <div class="service-area-bar">
+      <div class="container">
+        <span>Commercial cleaning and facility care across Greater Danbury and Western Connecticut</span>
+        <a href="tel:2037432440"><i data-lucide="phone"></i>203-743-2440</a>
+      </div>
+    </div>
     <div class="container nav-wrap">
       <a href="#home" class="brand" aria-label="Preferred Maintenance">
         <img src="./assets/images/image1.png" width="492" height="140" alt="Preferred Maintenance logo">
@@ -59,8 +65,9 @@
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#why-us">Why Preferred</a>
+        <a href="#video">Video</a>
         <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Request Quote</a>
       </nav>
     </div>
   </header>
@@ -72,11 +79,16 @@
       </div>
       <div class="hero-overlay"></div>
       <div class="container hero-content reveal">
-        <p class="eyebrow">Reliable Commercial Cleaning</p>
-        <h1>Create a cleaner, healthier workplace with a team you can trust.</h1>
+        <p class="eyebrow">Commercial Cleaning | Danbury, CT</p>
+        <h1>Commercial cleaning for facilities that need consistency, trust, and accountability.</h1>
         <p class="lead">
-          Preferred Maintenance has delivered dependable, cost-effective cleaning and maintenance for over 35 years across medical, corporate, industrial, and institutional spaces.
+          Preferred Maintenance has delivered dependable, cost-effective cleaning and maintenance for over 35 years across medical, corporate, industrial, educational, and institutional spaces.
         </p>
+        <ul class="hero-proof" aria-label="Preferred Maintenance strengths">
+          <li><i data-lucide="check"></i>Supervised crews</li>
+          <li><i data-lucide="check"></i>Flexible schedules</li>
+          <li><i data-lucide="check"></i>Green-cleaning practices</li>
+        </ul>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact"><i data-lucide="calendar-plus"></i>Book a Consultation</a>
           <a class="btn btn-secondary" href="#services"><i data-lucide="badge-check"></i>See Services</a>
@@ -93,7 +105,7 @@
         </article>
         <article>
           <strong>150</strong>
-          <span>Satisfied Customers</span>
+          <span>Customer Relationships</span>
         </article>
         <article>
           <strong>100+</strong>
@@ -138,13 +150,27 @@
       <div class="container reveal">
         <p class="eyebrow">We Work With All Types of Workplaces</p>
         <h2>Industry coverage designed around your facility requirements.</h2>
-        <div class="pill-grid">
-          <span>Corporate</span>
-          <span>Education</span>
-          <span>Medical</span>
-          <span>Hospitality</span>
-          <span>Manufacturing</span>
-          <span>Office Spaces</span>
+        <div class="industry-grid">
+          <article>
+            <i data-lucide="building-2"></i>
+            <h3>Corporate & Office</h3>
+            <p>Daily cleaning, floor care, glass, restrooms, and executive space upkeep.</p>
+          </article>
+          <article>
+            <i data-lucide="heart-pulse"></i>
+            <h3>Medical & Clinical</h3>
+            <p>High-standard cleaning for medical offices, surgical centers, and sensitive areas.</p>
+          </article>
+          <article>
+            <i data-lucide="factory"></i>
+            <h3>Industrial & Manufacturing</h3>
+            <p>Reliable crews for plants, labs, production spaces, and clean-room facilities.</p>
+          </article>
+          <article>
+            <i data-lucide="graduation-cap"></i>
+            <h3>Education & Institutions</h3>
+            <p>Scheduled cleaning support for schools, campuses, common areas, and events.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -267,6 +293,30 @@
       </div>
     </section>
 
+    <section id="video" class="section video-section">
+      <div class="container video-wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">See the Work</p>
+          <h2>Preferred Maintenance on site.</h2>
+          <p>
+            A quick look at the team, equipment, and facility-care work behind the service.
+          </p>
+        </div>
+        <div class="video-frame reveal">
+          <video
+            controls
+            preload="metadata"
+            poster="./assets/images/preferred-maintenance-video-thumb.jpg"
+            playsinline
+            aria-label="Preferred Maintenance team and commercial cleaning work video"
+          >
+            <source src="./assets/videos/preferred-maintenance-in-action.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+        </div>
+      </div>
+    </section>
+
     <section class="section testimonials">
       <div class="container">
         <div class="section-heading reveal">
@@ -350,8 +400,8 @@
       <div class="container split">
         <div class="split-text reveal">
           <p class="eyebrow">Contact Preferred Maintenance</p>
-          <h2>Get your free quote today.</h2>
-          <p>We welcome the opportunity to serve you with any cleaning and maintenance requirements.</p>
+          <h2>Get a cleaning proposal tailored to your facility.</h2>
+          <p>Tell us what kind of building you operate, the service you need, and the best way to reach you. We will follow up within one business day.</p>
           <div class="contact-list">
             <p><strong>Phone:</strong> <a href="tel:2037432440">203-743-2440</a></p>
             <p><strong>Fax:</strong> 203-743-0281</p>
@@ -387,7 +437,7 @@
           </label>
           <label for="message">
             Leave us a message...
-            <textarea id="message" name="message" rows="5"></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your facility, schedule, square footage, or services needed."></textarea>
           </label>
           <button id="submitBtn" type="submit" class="btn btn-primary"><i data-lucide="send"></i>Send Request</button>
           <p id="formSuccess" class="form-success" role="status" aria-live="polite"></p>
@@ -407,6 +457,7 @@
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#why-us">Why Preferred</a>
+        <a href="#video">Video</a>
         <a href="#contact">Contact</a>
       </div>
       <div>
@@ -418,9 +469,11 @@
     </div>
     <div class="container legal">
       <p>&copy; <span id="year"></span> Preferred Maintenance Inc.</p>
-      <p>Redesigned by: Eduardo Oliveira</p>
+      <p>Commercial cleaning and maintenance services in Connecticut.</p>
     </div>
   </footer>
+
+  <a class="mobile-call" href="tel:2037432440"><i data-lucide="phone-call"></i>Call Preferred Maintenance</a>
 
   <script src="https://unpkg.com/lucide@0.510.0/dist/umd/lucide.min.js"></script>
   <script src="./script.js"></script>

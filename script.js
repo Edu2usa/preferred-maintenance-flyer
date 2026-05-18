@@ -77,6 +77,7 @@ if (contactForm && submitBtn && formSuccess) {
 
     if (!contactForm.checkValidity()) {
       formSuccess.textContent = "Please complete the required fields before sending.";
+      contactForm.reportValidity();
       return;
     }
 
