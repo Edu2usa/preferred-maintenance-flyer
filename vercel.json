@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.prefmaint.com"
+        }
+      ],
+      "destination": "https://prefmaint.com/:path*",
+      "permanent": true
+    }
+  ]
+}
