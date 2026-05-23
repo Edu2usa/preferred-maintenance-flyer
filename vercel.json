@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/commercial-cleaning-danbury-ct",
+      "destination": "https://prefmaint.com/",
+      "permanent": true
+    },
+    {
+      "source": "/commercial-cleaning-danbury-ct/",
+      "destination": "https://prefmaint.com/",
+      "permanent": true
+    },
+    {
+      "source": "/commercial-cleaning-danbury-ct/:path*",
+      "destination": "https://prefmaint.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
